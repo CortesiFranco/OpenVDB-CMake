@@ -5,7 +5,6 @@ Wip OpenVDB with CMake multiplatform support.
 
 Unmodified openvdb 1.1
 
-Cmake 2.8
 
 OpenVDB
 =======
