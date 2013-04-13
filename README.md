@@ -1,7 +1,7 @@
 OpenVDB-CMake
 =============
 
-Wip OpenVDB with CMake.
+Wip OpenVDB with CMake multiplatform support.
 
 
 OpenVDB
