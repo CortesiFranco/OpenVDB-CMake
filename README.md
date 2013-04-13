@@ -1,9 +1,11 @@
-OpenVDB
-=======
+OpenVDB-CMake
+=============
 
 Wip OpenVDB with CMake.
 
 
+OpenVDB
+=======
 
 The OpenVDB library comprises a hierarchical data structure and a suite 
 of tools for the efficient manipulation of sparse, possibly time-varying, 
