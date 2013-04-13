@@ -1,6 +1,8 @@
 ###################################################################################################################
 #						   							   User Input												  #
 
+# Required paths
+
 # TBB Include Dir:
 set(TBB_INCLUDE_DIR D:/7D/Rendering/Sources/Blender/trunk/lib/windows/tbb/include/)
 set(TBB_LIB_DIR D:/7D/Rendering/Sources/Blender/trunk/lib/windows/tbb/lib/)
@@ -15,6 +17,21 @@ set(HALF_LIB_DIR D:/7D/Rendering/Sources/Blender/trunk/lib/windows/openexr/lib/)
 # Zlib Include Dir:
 set(ZLIB_INCLUDE_DIRS D:/7D/Rendering/Sources/Blender/trunk/lib/windows/zlib/include)
 
+
+
+# Optional paths (for Unit Test, Documentation and Viewers, see Installation notes.)
+
+# the parent directory of the cppunit/ header directory
+set(CPPUNIT_INCL_DIR replace_with_path)    
+ 
+# the directory containing libcppunit.so and/or libcppunit.a                         
+set(CPPUNIT_LIB_DIR replace_with_path)       
+
+# the directory containing glfw.h
+set(GLFW_INCL_DIR replace_with_path)
+
+# the directory containing libglfw
+set(GLFW_LIB_DIR replace_with_path)          
 
 ###################################################################################################################
 #						   							Opitional Flags										          #
@@ -46,7 +63,7 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
 ###################################################################################################################
-#						   																		                  #
+#						   							General Rules   							                  #
 
 project(OpenVDB)
 cmake_minimum_required(VERSION 2.8)
@@ -64,21 +81,6 @@ include_directories(${INC_SYS})
 # This line allows "openvdb/xxxxx.h" include sintax working in openvdb sources.
 include_directories(../)
 
-
-set(SRC
-#Main	
-    Exceptions.h
-    Grid.cc
-    Grid.h
-    Metadata.h
-    openvdb.h
-    Platform.cc
-    Platform.h
-    Types.h
-    version.h
-
-)
-
 add_subdirectory(io)
 add_subdirectory(math)
 add_subdirectory(metadata)
@@ -93,7 +95,7 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/../Deploy/lib CACHE INTERNAL "" FORC
 ###################################################################################################################
 #						   							Link Libraries      										  #
 
-FIND_LIBRARY(TBB_DEBUG tbb_debug ${TBB_LIB_DIR})
+#FIND_LIBRARY(TBB_DEBUG tbb_debug ${TBB_LIB_DIR})
 #TARGET_LINK_LIBRARIES(${openvdb} ${TBB_DEBUG})
 
 
@@ -103,7 +105,7 @@ FIND_LIBRARY(TBB_DEBUG tbb_debug ${TBB_LIB_DIR})
 add_executable(openvdb main.cc)
 
 #Lib Output
-#add_library(libopenvdb main.cc)
+add_library(libopenvdb main.cc)
 
 #Include Output
 INSTALL(FILES ${SRC}
